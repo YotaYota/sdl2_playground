@@ -40,7 +40,6 @@ void Player::render(SDL_Renderer& renderer)
 
 void Player::handleEvents(const Uint8* keyState)
 {
-    std::cout << "keyState: " << keyState << '\n';
     for (std::map<SDL_Scancode, bool>::iterator it=playerKeyState.begin(); it!=playerKeyState.end(); ++it)
     {
         const SDL_Scancode key = it->first;

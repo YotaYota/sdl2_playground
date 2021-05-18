@@ -79,7 +79,7 @@ message("  EXPORT_COMPILE_COMMANDS: ${serendip_export_compile_commands}")
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
 target_include_directories(
-    serendip PUBLIC
+    serendip SYSTEM PRIVATE
              ${SDL2_INCLUDE_DIRS}
              ${SDL2_IMAGE_INCLUDE_DIR}
 )
@@ -102,7 +102,6 @@ enable_testing()
 
 add_executable(
     serendip_tests ./tst/tests.cpp
-                   ./tst/input/input_test.cpp
 )
 
 target_include_directories(

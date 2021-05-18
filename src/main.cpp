@@ -22,7 +22,12 @@ int doGameLoop()
     while(!input->isQuit())
     {
         input->pollEvents();
-        game->handleEvents(input->getKeyState());
+        const Uint8* keyState = input->getKeyState();
+        if (keyState)
+        {
+            game->handleEvents(keyState);
+        }
+
         game->update(timer->getDeltaTime());
         game->render();
         timer->tick();
