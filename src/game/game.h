@@ -3,6 +3,8 @@
 
 #include "input.h"
 #include "player.h"
+#include "renderer.h"
+#include "window.h"
 
 #include <memory>
 #include <SDL2/SDL.h>
@@ -11,8 +13,8 @@
 class Game
 {
     private:
-        SDL_Window* window;
-        SDL_Renderer* renderer;
+        std::unique_ptr<Window> window;
+        std::unique_ptr<Renderer> renderer;
         std::unique_ptr<Player> player;
 
         void initPlayer();

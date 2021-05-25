@@ -1,7 +1,9 @@
 #include "game.h"
 #include "game_constants.h"
 
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_video.h>
 
 #include <iostream>
 #include <memory>
@@ -13,14 +15,16 @@ Game::Game()
     , renderer(nullptr)
     , player(nullptr)
 {
+    if (!init())
+    {
+        throw -1;
+    }
 
 }
 
 Game::~Game()
 {
     std::cerr << "Game destructor" << '\n';
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
     IMG_Quit();
     SDL_Quit();
 }
@@ -38,26 +42,30 @@ bool Game::init()
 
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
     {
-        window = SDL_CreateWindow(GameConstants::TITLE,
-                                  SDL_WINDOWPOS_CENTERED,
-                                  SDL_WINDOWPOS_CENTERED,
-                                  GameConstants::WINDOW_WIDTH,
-                                  GameConstants::WINDOW_HEIGHT,
-                                  GameConstants::SDL_WINDOW_FLAGS);
+        window = std::make_unique<Window>(
+                GameConstants::TITLE,
+                SDL_WINDOWPOS_CENTERED,
+                SDL_WINDOWPOS_CENTERED,
+                GameConstants::WINDOW_WIDTH,
+                GameConstants::WINDOW_HEIGHT,
+                GameConstants::SDL_WINDOW_FLAGS
+        );
     }
 
-    if (window == nullptr)
+    if (!window)
     {
-        std::cerr << " Failed to initialize window: "
+        std::cerr << "Failed to initialize window: "
                   << SDL_GetError() << '\n';
+
         return false;
     }
 
-    renderer = SDL_CreateRenderer(window, -1, 0);
-    if (renderer == nullptr)
+    renderer = std::make_unique<Renderer>(window.get()->raw(), -1, 0);
+    if (!renderer)
     {
-        std::cerr << " Failed to initialize renderer: "
+        std::cerr << "Failed to initialize renderer: "
                   << SDL_GetError() << '\n';
+
         return false;
     }
 
@@ -83,10 +91,10 @@ void Game::update(const double dt)
 
 void Game::render()
 {
-    SDL_SetRenderDrawColor(renderer, 150, 111, 214, 200);
-    SDL_RenderClear(renderer);
-    player->render(*renderer);
+    SDL_SetRenderDrawColor(renderer.get()->raw(), 150, 111, 214, 200);
+    SDL_RenderClear(renderer.get()->raw());
+    player->render(*renderer.get()->raw());
 
-    SDL_RenderPresent(renderer);
+    SDL_RenderPresent(renderer.get()->raw());
 }
 

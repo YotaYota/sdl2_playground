@@ -13,6 +13,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable(
     serendip ./src/main.cpp
              ./src/game/game.cpp
+             ./src/game/renderer.cpp
+             ./src/game/window.cpp
              ./src/input/input.cpp
              ./src/object/game_object.cpp
              ./src/object/player.cpp
@@ -26,7 +28,7 @@ target_include_directories(
              include
 )
 
-target_include_directories(
+include_directories(
     serendip PRIVATE
              ./src
              ./src/game
@@ -101,23 +103,14 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-    serendip_tests ./tst/tests.cpp
+    test_serendip ./test/tests.cpp
 )
 
-target_include_directories(
-    serendip_tests PUBLIC
-                   ./src
-                   ./src/game
-                   ./src/input
-                   ./src/object
-                   ./src/physics
-                   ./src/time
-)
 target_link_libraries(
-    serendip_tests
+    test_serendip
     gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(serendip_tests)
+gtest_discover_tests(test_serendip)
 

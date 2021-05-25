@@ -1,5 +1,5 @@
-#ifndef INPUT_H
-#define INPUT_H
+#ifndef PREFIX_INPUT_H
+#define PREFIX_INPUT_H
 
 #include <SDL2/SDL.h>
 
@@ -25,5 +25,5 @@ class Input
         const Uint8* getKeyState();
 };
 
-#endif /* INPUT_H */
+#endif /* PREFIX_INPUT_H */
 
