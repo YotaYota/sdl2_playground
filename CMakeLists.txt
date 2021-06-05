@@ -11,16 +11,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # ---- target ----
 add_executable(
-    serendip ./src/main.cpp
-             ./src/game/game.cpp
-             ./src/game/renderer.cpp
-             ./src/game/window.cpp
-             ./src/input/input.cpp
-             ./src/texture/texture_manager.cpp
-             ./src/object/game_object.cpp
-             ./src/object/player.cpp
-             ./src/time/timer.cpp
-             ./src/physics/point.cpp
+    serendip src/main.cpp
+             src/game/game.cpp
+             src/game/window.cpp
+             src/input/input.cpp
+             src/object/game_object.cpp
+             src/object/player.cpp
+             src/physics/point.cpp
+             src/renderer/renderer.cpp
+             src/texture/texture_manager.cpp
+             src/time/timer.cpp
 )
 
 # include
@@ -31,13 +31,14 @@ target_include_directories(
 
 include_directories(
     serendip PRIVATE
-             ./src
-             ./src/game
-             ./src/input
-             ./src/object
-             ./src/physics
-             ./src/time
-             ./src/texture
+             src
+             src/game
+             src/input
+             src/object
+             src/physics
+             src/renderer
+             src/texture
+             src/time
 )
 
 # properties
@@ -105,7 +106,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-    test_serendip ./test/tests.cpp
+    test_serendip test/tests.cpp
 )
 
 target_link_libraries(
