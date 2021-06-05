@@ -16,6 +16,7 @@ add_executable(
              ./src/game/renderer.cpp
              ./src/game/window.cpp
              ./src/input/input.cpp
+             ./src/texture/texture_manager.cpp
              ./src/object/game_object.cpp
              ./src/object/player.cpp
              ./src/time/timer.cpp
@@ -36,6 +37,7 @@ include_directories(
              ./src/object
              ./src/physics
              ./src/time
+             ./src/texture
 )
 
 # properties

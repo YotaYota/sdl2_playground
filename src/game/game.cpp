@@ -60,7 +60,7 @@ bool Game::init()
         return false;
     }
 
-    renderer = std::make_unique<Renderer>(window.get()->raw(), -1, 0);
+    renderer = std::make_shared<Renderer>(window.get()->raw(), -1, 0);
     if (!renderer)
     {
         std::cerr << "Failed to initialize renderer: "
