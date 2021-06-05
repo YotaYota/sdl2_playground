@@ -3,8 +3,8 @@
 ```sh
 mkdir build
 cd build
-cmake ..
+cmake .. -DCMAKE_BUILD_TYPE=Debug
 ```
 
-`cmake ..` creates `build/compile_commands.json` which can be used for _ccls_.
+`build/compile_commands.json` for _ccls_ is created by CMake.
 
