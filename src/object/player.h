@@ -13,8 +13,8 @@
 class Player : public GameObject
 {
     private:
-        Player(GameObject&) = delete;
-        Player& operator=(GameObject&) = delete;
+        Player(Player&) = delete;
+        Player& operator=(Player&) = delete;
 
         std::unique_ptr<InputComponent> input;
         std::unique_ptr<RigidBodyComponent> position;

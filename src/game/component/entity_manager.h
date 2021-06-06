@@ -13,6 +13,9 @@
 class EntityManager
 {
     private:
+        EntityManager(EntityManager&) = delete;
+        EntityManager& operator=(EntityManager&) = delete;
+
         //std::vector<std::unique_ptr<GameObject>> entities;
         std::unique_ptr<InputSystem> inputSystem;
         std::unique_ptr<Player> player;

@@ -4,15 +4,13 @@
 
 
 Player::Player()
-    : GameObject()
-    , input(std::make_unique<InputComponent>())
+    : input(std::make_unique<InputComponent>())
     , position(std::make_unique<RigidBodyComponent>())
 {
 }
 
 Player::Player(const int width, const int height, int x, int y)
-    : GameObject(width, height, x, y)
-    , input(std::make_unique<InputComponent>())
+    : input(std::make_unique<InputComponent>())
     , position(std::make_unique<RigidBodyComponent>())
 {
     position->rect.x = x;

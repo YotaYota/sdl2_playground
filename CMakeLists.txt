@@ -18,7 +18,6 @@ add_executable(
              src/game/component/input_system.cpp
              src/game/component/player_movement_system.cpp
              src/input/input.cpp
-             src/object/game_object.cpp
              src/object/player.cpp
              src/physics/point.cpp
              src/renderer/renderer.cpp
