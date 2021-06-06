@@ -9,6 +9,7 @@ EntityManager::EntityManager()
     : inputSystem(std::make_unique<InputSystem>())
     , player(std::make_unique<Player>(60, 60, 60, 120))
     , playerMovementSystem(std::make_unique<PlayerMovementSystem>())
+    , renderSystem(std::make_unique<RenderSystem>())
 {
 }
 
@@ -23,6 +24,11 @@ void EntityManager::update(const Uint8* keyState, const double dt)
                                  *(getPlayer()->getRigidBodyComponent()));
 
     std::cerr << dt << '\n';
+}
+
+void EntityManager::render(SDL_Renderer &renderer)
+{
+    renderSystem->render(renderer, *(getPlayer()->getRigidBodyComponent()));
 }
 
 Player* EntityManager::getPlayer()

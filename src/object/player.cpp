@@ -23,13 +23,6 @@ Player::~Player()
 {
 }
 
-void Player::render(SDL_Renderer& renderer)
-{
-    SDL_SetRenderDrawColor(&renderer, 0, 0, 255, 255);
-    SDL_RenderFillRect(&renderer, &position->rect);
-    SDL_RenderDrawRect(&renderer, &position->rect);
-}
-
 InputComponent* Player::getInputComponent()
 {
     return input.get();

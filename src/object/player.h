@@ -5,8 +5,6 @@
 #include "input_component.h"
 #include "rigid_body_component.h"
 
-#include <SDL2/SDL.h>
-
 #include <memory>
 #include <map>
 
@@ -24,7 +22,6 @@ class Player : public GameObject
         Player(const int width, const int height, int x, int y);
         ~Player();
 
-        void render(SDL_Renderer& renderer);
         InputComponent* getInputComponent();
         RigidBodyComponent* getRigidBodyComponent();
 };

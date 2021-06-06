@@ -17,6 +17,7 @@ add_executable(
              src/game/component/entity_manager.cpp
              src/game/component/input_system.cpp
              src/game/component/player_movement_system.cpp
+             src/game/component/render_system.cpp
              src/input/input.cpp
              src/object/player.cpp
              src/physics/point.cpp

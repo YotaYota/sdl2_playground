@@ -36,6 +36,11 @@
 },
 {
   "directory": "/home/jje/code/my_own_game/build",
+  "command": "/usr/bin/c++   -I/home/jje/code/my_own_game/include -I/home/jje/code/my_own_game/serendip -I/home/jje/code/my_own_game/PRIVATE -I/home/jje/code/my_own_game/src -I/home/jje/code/my_own_game/src/game -I/home/jje/code/my_own_game/src/game/component -I/home/jje/code/my_own_game/src/input -I/home/jje/code/my_own_game/src/object -I/home/jje/code/my_own_game/src/physics -I/home/jje/code/my_own_game/src/renderer -I/home/jje/code/my_own_game/src/texture -I/home/jje/code/my_own_game/src/time -isystem /usr/include/SDL2  -g   -Wall -Wextra -Weffc++ -Wsign-conversion -Werror -pedantic-errors -std=c++2a -o CMakeFiles/serendip.dir/src/game/component/render_system.cpp.o -c /home/jje/code/my_own_game/src/game/component/render_system.cpp",
+  "file": "/home/jje/code/my_own_game/src/game/component/render_system.cpp"
+},
+{
+  "directory": "/home/jje/code/my_own_game/build",
   "command": "/usr/bin/c++   -I/home/jje/code/my_own_game/include -I/home/jje/code/my_own_game/serendip -I/home/jje/code/my_own_game/PRIVATE -I/home/jje/code/my_own_game/src -I/home/jje/code/my_own_game/src/game -I/home/jje/code/my_own_game/src/game/component -I/home/jje/code/my_own_game/src/input -I/home/jje/code/my_own_game/src/object -I/home/jje/code/my_own_game/src/physics -I/home/jje/code/my_own_game/src/renderer -I/home/jje/code/my_own_game/src/texture -I/home/jje/code/my_own_game/src/time -isystem /usr/include/SDL2  -g   -Wall -Wextra -Weffc++ -Wsign-conversion -Werror -pedantic-errors -std=c++2a -o CMakeFiles/serendip.dir/src/input/input.cpp.o -c /home/jje/code/my_own_game/src/input/input.cpp",
   "file": "/home/jje/code/my_own_game/src/input/input.cpp"
 },

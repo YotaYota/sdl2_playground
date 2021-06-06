@@ -1,5 +1,6 @@
 #include "game.h"
 #include "game_constants.h"
+#include "render_system.h"
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -79,10 +80,6 @@ void Game::update(const Uint8* keyState, const double dt)
 
 void Game::render()
 {
-    SDL_SetRenderDrawColor(renderer.get()->raw(), 150, 111, 214, 200);
-    SDL_RenderClear(renderer.get()->raw());
-    entityManager->getPlayer()->render(*renderer.get()->raw());
-
-    SDL_RenderPresent(renderer.get()->raw());
+    entityManager->render(*(renderer.get()->raw()));
 }
 
