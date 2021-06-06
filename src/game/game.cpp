@@ -11,9 +11,9 @@
 
 
 Game::Game()
-    : window(nullptr)
+    : entityManager(std::make_unique<EntityManager>())
     , renderer(nullptr)
-    , player(nullptr)
+    , window(nullptr)
 {
     if (!init())
     {
@@ -69,31 +69,19 @@ bool Game::init()
         return false;
     }
 
-    initPlayer();
-
     return true;
 }
 
-void Game::initPlayer()
+void Game::update(const Uint8* keyState, const double dt)
 {
-    player = std::make_unique<Player>(60, 60, 60, 120);
-}
-
-void Game::handleEvents(const Uint8* keyState)
-{
-    player->handleEvents(keyState);
-}
-
-void Game::update(const double dt)
-{
-    player->update(dt);
+    entityManager->update(keyState, dt);
 }
 
 void Game::render()
 {
     SDL_SetRenderDrawColor(renderer.get()->raw(), 150, 111, 214, 200);
     SDL_RenderClear(renderer.get()->raw());
-    player->render(*renderer.get()->raw());
+    entityManager->getPlayer()->render(*renderer.get()->raw());
 
     SDL_RenderPresent(renderer.get()->raw());
 }

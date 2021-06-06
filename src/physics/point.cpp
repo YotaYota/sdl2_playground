@@ -27,3 +27,13 @@ int Point::getY()
     return y;
 }
 
+void Point::setX(const int x)
+{
+    this->x = x;
+}
+
+void Point::setY(const int y)
+{
+    this->y = y;
+}
+

@@ -2,7 +2,8 @@
 #define PLAYER_H
 
 #include "game_object.h"
-#include "input.h"
+#include "input_component.h"
+#include "rigid_body_component.h"
 
 #include <SDL2/SDL.h>
 
@@ -15,12 +16,8 @@ class Player : public GameObject
         Player(GameObject&) = delete;
         Player& operator=(GameObject&) = delete;
 
-        std::unique_ptr<Input> input;
-        std::map<const SDL_Scancode, bool> playerKeyState;
-
-        std::map<const SDL_Scancode, bool> initKeyStates();
-        void setKeyStates(const Input& input);
-        void setPosition(const double dt);
+        std::unique_ptr<InputComponent> input;
+        std::unique_ptr<RigidBodyComponent> position;
 
     public:
         Player();
@@ -28,8 +25,8 @@ class Player : public GameObject
         ~Player();
 
         void render(SDL_Renderer& renderer);
-        void handleEvents(const Uint8* keyState);
-        void update(const double dt);
+        InputComponent* getInputComponent();
+        RigidBodyComponent* getRigidBodyComponent();
 };
 
 #endif /* PLAYER_H */

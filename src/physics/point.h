@@ -16,6 +16,9 @@ public:
 
     int getX();
     int getY();
+
+    void setX(const int x);
+    void setY(const int y);
 };
 
 #endif /* POINT_H */

@@ -25,10 +25,8 @@ int doGameLoop()
         const Uint8* keyState = input->getKeyState();
         if (keyState)
         {
-            game->handleEvents(keyState);
+            game->update(keyState, timer->getDeltaTime());
         }
-
-        game->update(timer->getDeltaTime());
         game->render();
         timer->tick();
     }

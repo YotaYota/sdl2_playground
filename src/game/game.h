@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "entity_manager.h"
 #include "input.h"
-#include "player.h"
 #include "renderer.h"
 #include "window.h"
 
@@ -13,9 +13,9 @@
 class Game
 {
     private:
-        std::unique_ptr<Window> window;
+        std::unique_ptr<EntityManager> entityManager;
         std::shared_ptr<Renderer> renderer;
-        std::unique_ptr<Player> player;
+        std::unique_ptr<Window> window;
 
         void initPlayer();
 
@@ -27,8 +27,7 @@ class Game
         ~Game();
 
         bool init();
-        void handleEvents(const Uint8* keyState);
-        void update(const double dt);
+        void update(const Uint8* keyState, const double dt);
         void render();
 };
 

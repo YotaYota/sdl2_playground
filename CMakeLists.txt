@@ -14,6 +14,9 @@ add_executable(
     serendip src/main.cpp
              src/game/game.cpp
              src/game/window.cpp
+             src/game/component/entity_manager.cpp
+             src/game/component/input_system.cpp
+             src/game/component/player_movement_system.cpp
              src/input/input.cpp
              src/object/game_object.cpp
              src/object/player.cpp
@@ -33,6 +36,7 @@ include_directories(
     serendip PRIVATE
              src
              src/game
+             src/game/component
              src/input
              src/object
              src/physics
